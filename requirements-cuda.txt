@@ -15,3 +15,7 @@ flask-socketio
 tensorboardX
 crc32c
 jsonschema
+opencv-python-headless
+pyyaml
+tensorflow[and-cuda]
+tensorrt
