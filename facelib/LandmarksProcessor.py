@@ -361,7 +361,7 @@ def get_rect_from_landmarks(image_landmarks):
 def expand_eyebrows(lmrks, eyebrows_expand_mod=1.0):
     if len(lmrks) != 68:
         raise Exception('works only with 68 landmarks')
-    lmrks = np.array( lmrks.copy(), dtype=np.int )
+    lmrks = np.array( lmrks.copy(), dtype=int )
 
     # #nose
     ml_pnt = (lmrks[36] + lmrks[0]) // 2
@@ -414,7 +414,7 @@ def get_image_eye_mask (image_shape, image_landmarks):
 
     hull_mask = np.zeros( (h,w,1),dtype=np.float32)
 
-    image_landmarks = image_landmarks.astype(np.int)
+    image_landmarks = image_landmarks.astype(int)
 
     cv2.fillConvexPoly( hull_mask, cv2.convexHull( image_landmarks[36:42]), (1,) )
     cv2.fillConvexPoly( hull_mask, cv2.convexHull( image_landmarks[42:48]), (1,) )
@@ -437,7 +437,7 @@ def get_image_mouth_mask (image_shape, image_landmarks):
 
     hull_mask = np.zeros( (h,w,1),dtype=np.float32)
 
-    image_landmarks = image_landmarks.astype(np.int)
+    image_landmarks = image_landmarks.astype(int)
 
     cv2.fillConvexPoly( hull_mask, cv2.convexHull( image_landmarks[48:60]), (1,) )
 
@@ -686,7 +686,7 @@ def draw_landmarks (image, image_landmarks, color=(0,255,0), draw_circles=True, 
     if len(image_landmarks) != 68:
         raise Exception('get_image_eye_mask works only with 68 landmarks')
 
-    int_lmrks = np.array(image_landmarks, dtype=np.int)
+    int_lmrks = np.array(image_landmarks, dtype=int)
 
     jaw = int_lmrks[slice(*landmarks_68_pt["jaw"])]
     right_eyebrow = int_lmrks[slice(*landmarks_68_pt["right_eyebrow"])]
