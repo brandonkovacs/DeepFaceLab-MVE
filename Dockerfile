@@ -1,4 +1,4 @@
-FROM nvidia/cuda:12.4.1-cudnn-devel-ubuntu22.04
+FROM nvidia/cuda:12.8.0-cudnn-devel-ubuntu22.04
 
 # Install apt dependencies
 RUN apt-get update && \
@@ -28,5 +28,5 @@ WORKDIR /opt/DeepFaceLab
 RUN python3 -m pip install -r requirements-cuda.txt
 
 # Set default entry point
-CMD ["/bin/bash"]
+CMD ["python3", "main.py"]
 EXPOSE 6006
