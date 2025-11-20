@@ -2,7 +2,7 @@ FROM nvidia/cuda:12.8.0-cudnn-devel-ubuntu22.04
 
 # Install apt dependencies
 RUN apt-get update && \
-    apt-get install -y curl vim git libglib2.0-0 libgl1 && \
+    apt-get install -y curl vim git libglib2.0-0 libgl1 ffmpeg && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
