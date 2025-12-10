@@ -55,7 +55,7 @@ def apply_xseg(input_path, model_path):
                      
     io.log_info(f'Applying trained XSeg model to {input_path.name}/ folder.')
 
-    device_config = nn.DeviceConfig.ask_choose_device(choose_only_one=True)
+    device_config = nn.DeviceConfig.BestGPU()
     nn.initialize(device_config)
         
     
